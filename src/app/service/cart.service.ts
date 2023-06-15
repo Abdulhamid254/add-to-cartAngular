@@ -25,6 +25,7 @@ export class CartService {
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
+    // console.log(this.cartItemList);
   }
   getTotalPrice() {
     let grandTotal = 0;
@@ -42,7 +43,7 @@ export class CartService {
     });
   }
   removeAllCart() {
-    this, (this.cartItemList = []);
+    this.cartItemList = [];
     this.productList.next(this.cartItemList); //resetting after subscribing
   }
 }
