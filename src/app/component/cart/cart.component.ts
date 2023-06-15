@@ -7,7 +7,8 @@ import { CartService } from 'src/app/service/cart.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  public products: any = [];
+  public products: Record<string, string | number | Record<string, number>>[] =
+    [];
   public grandTotal!: number;
 
   constructor(private cart: CartService) {}
@@ -15,10 +16,12 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cart.getProducts().subscribe((res) => {
       this.products = res;
+      // console.log(this.products);
+
       this.grandTotal = this.cart.getTotalPrice();
     });
   }
-  removeItem(item: any) {
+  removeItem(item: Record<string, string | number | Record<string, number>>) {
     this.cart.removeCartItem(item);
   }
   emptycart() {
