@@ -8,11 +8,13 @@ export class CartService {
   public cartItemList: any = [];
   // productlist below will both work as observable and also responsible for emmiting the data
   public productList = new BehaviorSubject<any>([]); // here we have initialsed as empty array as our initial value because our product list is an array
+  // productList$ = new BehaviorSubject<any>([]);
 
   constructor() {}
   // whoever will make use of the getProducts method he will subscribe to it
   getProducts() {
     return this.productList.asObservable();
+    // return this.productList$;
   }
   // in the setter we are pushing the product into the cartList then we are emmitting the data next used for emitting
   setProduct(product: any) {
