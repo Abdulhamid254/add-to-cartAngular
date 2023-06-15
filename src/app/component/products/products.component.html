@@ -44,7 +44,7 @@
   <div class="row">
     <ng-container *ngFor="let item of productList">
       <div class="card col-md-3">
-        <img src="{{ item.image }}" alt="" />
+        <img src="{{ item['image'] }}" alt="" />
         <h5
           style="
             white-space: nowrap;
@@ -53,7 +53,7 @@
             max-width: 100ch;
           "
         >
-          {{ item.title }}
+          {{ item["title"] }}
         </h5>
         <p
           style="
@@ -63,9 +63,9 @@
             max-width: 100ch;
           "
         >
-          {{ item.description }}
+          {{ item["description"] }}
         </p>
-        <p><strong>Price:</strong>${{ item.price }}</p>
+        <p><strong>Price:</strong>${{ item["price"] }}</p>
         <button class="btn btn-primary" (click)="addtocart(item)">
           Add to Cart
         </button>
